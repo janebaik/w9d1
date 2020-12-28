@@ -1,28 +1,31 @@
-
-
-// Surrogate.prototype = SuperClass.prototype;
-// Subclass.prototype = new Surrogate();
-// Subclass.prototype.constructor = Subclass;
-
-Function.prototype.inherits = function(superclass){
-    function Surrogate() { };
+Function.prototype.inherits = function(SuperClass){
     const fn = this;
-    Surrogate.prototype = superclass.prototype;
-    // fn.prototype = new Surrogate();
+    debugger
+    function Surrogate() { };
+    debugger
+    Surrogate.prototype = SuperClass.prototype;
+    debugger
+    Surrogate.prototype = SuperClass.prototype;
+    fn.prototype = new Surrogate();
     fn.prototype.constructor = fn;
-}
+};
 
 function MovingObject(){ 
-    function galaxy(){
-        console.log("galaxy");
-    }
-    
-}
+    const name = "Jupiter";
+    // MovingObject.prototype.sayHello = function(){
+    //     console.log("hello");
+    // }
+};
 
 function Ship() { }
 Ship.inherits(MovingObject);
-Ship.galaxy();
+
 
 function Asteroid() { }
 Asteroid.inherits(MovingObject);
 
+MovingObject.prototype.sayHello = function() {
+    console.log("hello from space!");
+};
+
+sayHello()
