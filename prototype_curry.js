@@ -1,10 +1,10 @@
-Function.prototype.curry = function(numArgs){
+Function.prototype.curry = function (numArgs) {
     const args = [];
     const fn = this;
     console.log(fn);
-    return function(num){
+    return function (num) {
         args.push(num);
-        if (args.length === numArgs){
+        if (args.length === numArgs) {
             curry.apply(fn, args);
         } else {
             return fn;
@@ -12,10 +12,10 @@ Function.prototype.curry = function(numArgs){
     }
 }
 // [1,2,3].myEach()
-function sumTest(){
+function sumTest() {
     let sumFinal = 0;
     const value = Object.values(arguments);
-    value.forEach(function(ele){
+    value.forEach(function (ele) {
         sumFinal += ele;
     })
     return sumFinal;
