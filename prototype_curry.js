@@ -1,17 +1,17 @@
 Function.prototype.curry = function(numArgs){
     const args = [];
     const fn = this;
-    console.log(fn);
-    return function(num){
+    return function _curry (num){
         args.push(num);
         if (args.length === numArgs){
-            curry.apply(fn, args);
+            // return fn(...args);
+            return fn.apply(fn, args)
         } else {
-            return fn;
+            return _curry;
         }
     }
 }
-// [1,2,3].myEach()
+
 function sumTest(){
     let sumFinal = 0;
     const value = Object.values(arguments);
@@ -20,5 +20,5 @@ function sumTest(){
     })
     return sumFinal;
 }
-sumTest.curry(4)
-// console.log(sum(5)(30)(20)(1));
+
+console.log(sumTest.curry(2)(2)(3))

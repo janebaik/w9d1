@@ -17,19 +17,19 @@ class Dog {
 
 // arguments version --
 
-// Function.prototype.myBind = function() {
-//     // let args = Object.values(arguments);
-//     let args = Array.from(arguments);
-//     const context = args[0];
-//     const bindArgs = args.slice(1)
-//     // console.log(args)
-//     const fn = this
-//     return function () {
-//         const callArgs = Array.from(arguments);
-//         // console.log(callArgs)
-//         return fn.apply(context, bindArgs.concat(callArgs));
-//     };
-// };
+Function.prototype.myBind = function() {
+    // let args = Object.values(arguments);
+    let args = Array.from(arguments);
+    const context = args[0];
+    const bindArgs = args.slice(1)
+    // console.log(args)
+    const fn = this
+    return function () {
+        const callArgs = Array.from(arguments);
+        // console.log(callArgs)
+        return fn.apply(context, bindArgs.concat(callArgs));
+    };
+};
 
 // ...Rest Operator Version --
 
