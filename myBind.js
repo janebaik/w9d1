@@ -14,19 +14,31 @@ class Dog {
         this.name = name;
     }
 }
-Function.prototype.myBind = function() {
-    // let args = Object.values(arguments);
-    let args = Array.from(arguments);
-    const context = args[0];
-    const bindArgs = args.slice(1)
-    // console.log(args)
-    const fn = this
-    return function () {
-        const callArgs = Array.from(arguments);
-        // console.log(callArgs)
-        return fn.apply(context, bindArgs.concat(callArgs));
-    };
-};
+
+// arguments version --
+
+// Function.prototype.myBind = function() {
+//     // let args = Object.values(arguments);
+//     let args = Array.from(arguments);
+//     const context = args[0];
+//     const bindArgs = args.slice(1)
+//     // console.log(args)
+//     const fn = this
+//     return function () {
+//         const callArgs = Array.from(arguments);
+//         // console.log(callArgs)
+//         return fn.apply(context, bindArgs.concat(callArgs));
+//     };
+// };
+
+// ...Rest Operator Version --
+
+Function.prototype.myBind = function(ctx, ...bindArgs){
+    const fn = this;
+    return function(...callArgs){
+        return fn.apply(ctx, bindArgs.concat(callArgs));
+    }
+}
 
 const markov = new Cat("Markov");
 const pavlov = new Dog("Pavlov");
