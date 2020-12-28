@@ -8,7 +8,7 @@ Function.prototype.inherits = function(superclass){
     function Surrogate() { };
     const fn = this;
     Surrogate.prototype = superclass.prototype;
-    fn.prototype = new Surrogate();
+    // fn.prototype = new Surrogate();
     fn.prototype.constructor = fn;
 }
 
