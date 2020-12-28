@@ -1,9 +1,9 @@
-function sum(){
+function sum() {
     let sumFinal = 0;
-   console.log(arguments);
-   console.log(`${Object.keys(arguments)} line 4`);
+    console.log(arguments);
+    console.log(`${Object.keys(arguments)} line 4`);
     const keysObject = Object.keys(arguments);
-    keysObject.forEach(function(ele) {
+    keysObject.forEach(function (ele) {
         console.log(keysObject);
         sumFinal += arguments[ele];
         console.log(`${arguments[ele]} line 9`)
